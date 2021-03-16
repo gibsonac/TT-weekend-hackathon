@@ -31,12 +31,14 @@ namespace tenant_turner.Controllers
             dbContext = context;
         }
 
+        //////////MAIN HOMEPAGE ROUTE /////////////
         public IActionResult Index()
         {
             ViewBag.Homepage = true;
             ViewBag.User = loggedUser;
             return View();
         }
+        //////////LIST OF RENTALS PAGE /////////////
         [HttpGet("Rentals")]
         public IActionResult Rentals()
         {
@@ -46,6 +48,7 @@ namespace tenant_turner.Controllers
             ViewBag.User = loggedUser;
             return View(AllRentals);
         }
+        //////////ABOUT US PAGE /////////////
         [HttpGet("About")]
         public IActionResult About()
         {
@@ -53,18 +56,21 @@ namespace tenant_turner.Controllers
             ViewBag.User = loggedUser;
             return View(AllAdmins);
         }
+        //////////BENEFITS PAGE (INCOMPLETE) /////////////
         [HttpGet("benefits")]
         public IActionResult Benefits()
         {
             ViewBag.User = loggedUser;
             return View();
         }
+        //////////HOW IT WORKS PAGE (INCOMPLETE) /////////////
         [HttpGet("how-it-works")]
         public IActionResult HowItWorks()
         {
             ViewBag.User = loggedUser;
             return View();
         }
+        //////////PRICING PAGE (INCOMPLETE) /////////////
         [HttpGet("pricing")]
         public IActionResult Pricing()
         {
