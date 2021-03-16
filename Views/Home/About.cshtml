@@ -1,0 +1,58 @@
+@model List<User>
+@{
+    ViewData["Title"] = "About Us";
+}
+<script type="text/javascript" src="~/js/about.js"></script>
+<div class="container full-page-container">
+    <div class="text-center about-description">
+        <h1>About Us</h1>
+        <p>
+            Tenant Turner was built by landlords to solve the age old problem of finding quality tenants quickly.
+
+            Combined, the three co-founders have almost fifty years of software development experience and we each have at least one rental property. We've married our passions for usable, valuable products to solve the problems we've encountered managing residential rental properties.
+        </p>
+    </div>
+    <div class="row about-row-spacing text-center">
+    @{
+        int num = 0;
+        foreach(var user in Model)
+        {
+        num += 1;
+        String Url = user.Staff_pic+".jpeg";
+        <div class="col-sm-4 employee-pic-col">
+            @{
+                if(num == 1)
+                {
+                    <img src="/images/@Url" alt="..." class="img-thumbnail employee-pic" id="Person-pic-@num"+num class="rounded mx-auto d-block">
+                    <h4>@user.First_Name @user.Last_Name</h4>
+                    <div class="Bios Mobile-Bios" id="Mobile-Person-@num">
+                        <h5>@user.First_Name</h5>
+                        <p>@user.Staff_bio</p>
+                    </div>
+                }
+                else
+                {
+                    <img src="/images/@Url" alt="..." class="img-thumbnail employee-pic Pic-half-opacity" id="Person-pic-@num"+num class="rounded mx-auto d-block">
+                    <h4>@user.First_Name @user.Last_Name</h4>
+                    <div class="Bios Mobile-Bios" id="Mobile-Person-@num">
+                        <h5>@user.First_Name</h5>
+                        <p>@user.Staff_bio</p>
+                    </div>
+                }
+            }
+        </div>
+        }
+    }
+    </div>
+    @{
+        num = 0;
+        foreach(var user in Model)
+        {
+        num += 1;
+        <div class="Bios" id="Person-@num">
+            <h5>@user.First_Name</h5>
+            <p>@user.Staff_bio</p>
+        </div>
+        }
+    }
+</div>
